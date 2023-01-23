@@ -69,19 +69,19 @@ public class Pieza {
 	}
         /**
          * 
-         * @return 
+         * @return matriu de la pieza
          */
 	public boolean[][] getPosicion() {
 		return this._posicion;
 	}
         /**
          * Posicion casilla
-         * @param i
-         * @param j
+         * @param fila
+         * @param columna
          * @return posicion casilla
          */
-	public boolean getCasilla(int i, int j) {
-		return this._posicion[i][j];
+	public boolean getCasilla(int fila, int columna) {
+		return this._posicion[fila][columna];
 	}
         /**
          * Conseguir columna
@@ -116,7 +116,7 @@ public class Pieza {
 	}
         /**
          * Obtener ancho figura(por columnas)
-         * @return 
+         * @return ancho figura
          */
 	public int getAncho() {
 		int contador = 0;
@@ -133,7 +133,7 @@ public class Pieza {
 	}
 	/**
          * Obtiene el alto de la figura (por filas)
-         * @return 
+         * @return alto de la figura
          */
 	public int getAlto() {
 		int contador = 0;
@@ -150,7 +150,7 @@ public class Pieza {
 	}
         /**
          * Rota las matrices de las figuras
-         * @param amplada 
+         * @param amplada amplada del taulell
          */
 	public void rotar(int amplada) {
 		if (_posicion == null || _posicion.length == 0) {
@@ -180,8 +180,8 @@ public class Pieza {
 
 	}
 	/**
-         * mira si hay hueco abajo de la figura
-         * @return 
+         * Cuenta los huecos que hay debajo de la pieza
+         * @return int huecos debajo
          */
 	private int huecoAbajo() {
 		int desplazarAbajo = 0;
@@ -202,7 +202,7 @@ public class Pieza {
 		return desplazarAbajo;
 	}
 	/**
-         * 
+         * Cuenta los huecos que hay a la izquierda de la pieza
          * @return 
          */
 	private int huecoIzq() {
@@ -224,7 +224,7 @@ public class Pieza {
 		return desplazarIzq;
 	}
         /**
-         * 
+         * Mueve la pieza a la esquina inferior izquierda
          */
 	private void reposicionar() {
 		// Desplazamientos hacia abajo
