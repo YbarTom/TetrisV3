@@ -24,7 +24,7 @@ public class Menu {
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
         /**
-         * 
+         * Mostrar la pieza en el taulell
          * @param p pieza
          * @param amplada amplada del taulell
          */
@@ -66,7 +66,10 @@ public class Menu {
 			System.out.println();
 		}
 	}
-
+        /**
+         * Mostrar el taulell
+         * @param t taulell
+         */
 	public static void MostrarTaulell(Taulell t) {
 		for(int i = 0; i<t.getAmplada();i++) {
 			System.out.print("- ");
@@ -107,7 +110,10 @@ public class Menu {
 			System.out.println(i==t.getTaulell().length-1? "Puntuacio: "+t.getPuntuacion():"");
 		}
 	}
-
+        /**
+         * Definir la altura i amplada del taulell
+         * @return 
+         */
 	public static Taulell DefinirTaulell() {
 		int amplada;
 		int alcada;
@@ -120,7 +126,10 @@ public class Menu {
 		Taulell t = new Taulell(alcada, amplada);
 		return t;
 	}
-	
+	/**
+         * Crear una nova peça
+         * @return 
+         */
 	public static Pieza NovaPieza() {
 		int dau = (int) (Math.random() * 7 + 1);
 		Pieza p = null;
@@ -149,7 +158,11 @@ public class Menu {
 		}
 		return p;
 	}
-
+        /**
+         * Moure i rotar la peça
+         * @param t taulell
+         * @return 
+         */
 	public static Pieza ControlarPieza(Taulell t) {
 		Pieza p = NovaPieza();
 		boolean salir = false;
@@ -201,7 +214,9 @@ public class Menu {
 
 		return numero;
 	}
-
+        /**
+         * Fa salts de linea
+         */
 	public static void clearScreen() {
 		System.out.print("\n\n\n\n\n\n\n\n\n\n");
 		System.out.flush();
