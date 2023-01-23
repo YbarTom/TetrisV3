@@ -23,7 +23,11 @@ public class Menu {
 	public static final String ANSI_PURPLE = "\u001B[35m";
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
-
+        /**
+         * 
+         * @param p pieza
+         * @param amplada amplada del taulell
+         */
 	public static void MostrarPieza(Pieza p, int amplada) {
 		for (int i = 0; i < p.getPosicion().length; i++) {
 			for (int j = 0; j < amplada; j++) {

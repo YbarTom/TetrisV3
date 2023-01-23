@@ -11,7 +11,11 @@ public class Pieza {
 	private TipoPieza _tipo;
 	private boolean[][] _posicion;
 	private int _columna;
-
+        /**
+         * Asigna las dimensiones a las piezas
+         * 
+         * @param tipo tipo de pieza
+         */
 	public Pieza(TipoPieza tipo) {
 		this._columna = 0;
 		this._tipo = tipo;
@@ -63,35 +67,57 @@ public class Pieza {
 			break;
 		}
 	}
-
+        /**
+         * 
+         * @return 
+         */
 	public boolean[][] getPosicion() {
 		return this._posicion;
 	}
-
+        /**
+         * Posicion casilla
+         * @param i
+         * @param j
+         * @return posicion casilla
+         */
 	public boolean getCasilla(int i, int j) {
 		return this._posicion[i][j];
 	}
-
+        /**
+         * Conseguir columna
+         * @return posicion columna
+         */
 	public int getColumna() {
 		return this._columna;
 	}
-
+        /**
+         * Tipo de pieza
+         * @return tipo de pieza
+         */
 	public TipoPieza getTipo() {
 		return this._tipo;
 	}
-
+        /**
+         * Mover figura izquierda
+         */
 	public void moverIzq() {
 		if (this._columna > 0) {
 			this._columna -= 1;
 		}
 	}
-
+        /**
+         * Mover figura derecha
+         * @param tamTaulell 
+         */
 	public void moverDer(int tamTaulell) {
 		if (tamTaulell - this._columna > getAncho()) {
 			this._columna += 1;
 		}
 	}
-
+        /**
+         * Obtener ancho figura(por columnas)
+         * @return 
+         */
 	public int getAncho() {
 		int contador = 0;
 		for (int i = 0; i < _posicion.length; i++) {
@@ -105,7 +131,10 @@ public class Pieza {
 		}
 		return contador;
 	}
-	
+	/**
+         * Obtiene el alto de la figura (por filas)
+         * @return 
+         */
 	public int getAlto() {
 		int contador = 0;
 		for (int i = 0; i < _posicion.length; i++) {
@@ -119,7 +148,10 @@ public class Pieza {
 		}
 		return contador;
 	}
-
+        /**
+         * Rota las matrices de las figuras
+         * @param amplada 
+         */
 	public void rotar(int amplada) {
 		if (_posicion == null || _posicion.length == 0) {
 			return;
@@ -147,7 +179,10 @@ public class Pieza {
 		this._columna -= Math.max(getAncho()+this._columna-amplada, 0);
 
 	}
-	
+	/**
+         * mira si hay hueco abajo de la figura
+         * @return 
+         */
 	private int huecoAbajo() {
 		int desplazarAbajo = 0;
 		boolean salir = false;
@@ -166,7 +201,10 @@ public class Pieza {
 		}
 		return desplazarAbajo;
 	}
-	
+	/**
+         * 
+         * @return 
+         */
 	private int huecoIzq() {
 		int desplazarIzq = 0;
 		boolean salir = false;
@@ -185,7 +223,9 @@ public class Pieza {
 		}
 		return desplazarIzq;
 	}
-
+        /**
+         * 
+         */
 	private void reposicionar() {
 		// Desplazamientos hacia abajo
 		int desplazarAbajo = huecoAbajo();

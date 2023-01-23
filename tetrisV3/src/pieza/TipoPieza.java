@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pieza;
-
+/**
+ * clasificar piezas 
+ * @author ausias
+ */
 public enum TipoPieza {
 	piezaNula,
 	piezaT,

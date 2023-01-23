@@ -18,6 +18,7 @@ public class Main {
 			finalPartida = t.FerCaureLaPieza(p);
 			t.ComprobarFilas();
 		}
+                //imprimim el final de la partida i la puntuació final
 		System.out.println("Fi de la partida");
 		System.out.println("Puntuacio: "+t.getPuntuacion());
 	}

@@ -11,7 +11,11 @@ public class Taulell {
 	private TipoPieza[][] _matriu;
 	private int _amplada;
 	private int _puntuacion;
-
+        /**
+         * Creacio de la matriu taulell
+         * @param alcada alçada del taulell
+         * @param amplada amplada del taulell
+         */
 	public Taulell(int alcada, int amplada) {
 		this._matriu = new TipoPieza[alcada][amplada];
 		this._amplada = amplada;
@@ -22,20 +26,33 @@ public class Taulell {
 			}
 		}
 	}
-
+        /**
+         * conseguir el tablero
+         * @return matriz tablero
+         */
 	public TipoPieza[][] getTaulell() {
 		return this._matriu;
 	}
-
+        /**
+         * amplada taulell
+         * @return amplada taulell
+         */
 	public int getAmplada() {
 		return this._amplada;
 	}
-
+        /**
+         * puntuació de la partida
+         * @return puntució actual
+         */
 	public int getPuntuacion() {
 		return this._puntuacion;
 		
 	}
-	
+	/**
+         * mira si hi ha espai per colocar la peça
+         * @param p pieza
+         * @return altura d'on està l'espai 
+         */
 	private int BuscarPosicio(Pieza p) {
 		boolean[][] posicionPieza = p.getPosicion();
 		int altura = -1;
@@ -55,7 +72,11 @@ public class Taulell {
 		}
 		return altura;
 	}
-
+        /**
+         * hacer caer la pieza
+         * @param p pieza
+         * @return si la casilla esta ocupada 
+         */
 	public boolean FerCaureLaPieza(Pieza p) {
 		boolean[][] posicionPieza = p.getPosicion();
 		boolean ocupado = false;
@@ -76,7 +97,9 @@ public class Taulell {
 		}
 		return ocupado;
 	}
-
+        /**
+         * comprobar si hay alguna fila llena
+         */
 	public void ComprobarFilas() {
 		for (int i = 0; i < this._matriu.length; i++) {
 			int contador = 0;
@@ -92,7 +115,10 @@ public class Taulell {
 			}
 		}
 	}
-
+        /**
+         * actualitza el taulell per fer baixar les peces quan s'elimina una fila
+         * @param fila fila que s'ha eliminat
+         */
 	public void ActualitzarTaulell(int fila) {
 		for (int j = fila; j >= 0; j--) {
 			for (int k = 0; k < this._matriu[0].length; k++) {
@@ -103,7 +129,10 @@ public class Taulell {
 			}
 		}
 	}
-
+        /**
+         * elimina una fila plena
+         * @param fila fila que esta plena
+         */
 	public void EliminarFila(int fila) {
 		for (int i = 0; i < this._amplada; i++) {
 			this._matriu[fila][i] = TipoPieza.piezaNula;
